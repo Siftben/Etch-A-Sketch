@@ -1,6 +1,5 @@
 createSketch();
 const drawDivs = document.querySelectorAll('.draw-px');
-let isDrawn = false;
 
 function createSketch () {
     const drawbg = document.querySelector('.draw-bg');
@@ -19,20 +18,29 @@ function createSketch () {
             const makeDiv = document.createElement('div');
             allFlex[index].appendChild(makeDiv);
             makeDiv.classList.add('draw-px');
-            
         }
     }
     
 }
 
 function handleEnter() {
+    if(this.classList.contains('drawn')) return;
+    
     this.style.backgroundColor = "grey";
 }
 
 function handleLeave() {
+    if(this.classList.contains('drawn')) return;
+
     this.style.backgroundColor = "white";
+}
+
+function draw() {
+    this.style.backgroundColor = "black";
+    this.classList.add('drawn');
 }
 
 drawDivs.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
 drawDivs.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
+drawDivs.forEach(trigger => trigger.addEventListener('click', draw))
 
