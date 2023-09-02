@@ -1,0 +1,13 @@
+.title{
+    text-align: center;
+}
+
+.draw-bg{
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.draw-px{
+    padding: 8px;
+}
