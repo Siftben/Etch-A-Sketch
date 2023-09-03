@@ -34,9 +34,9 @@ function createSketch (newRowColumn) {
     rowColumn = newRowColumn;
     drawDivs = document.querySelectorAll('.draw-px');
 
-    drawDivs.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
+    //drawDivs.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
     drawDivs.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
-    drawDivs.forEach(trigger => trigger.addEventListener('click', draw))
+    drawDivs.forEach(trigger => trigger.addEventListener('mouseenter', draw))
     
 }
 
