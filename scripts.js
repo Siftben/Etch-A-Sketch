@@ -1,6 +1,7 @@
 createSketch();
 const drawDivs = document.querySelectorAll('.draw-px');
 const colorPicker = document.getElementById("color-picker");
+const resetButton = document.querySelector('.reset-btn');
 let colorDraw;
 
 function createSketch () {
@@ -47,8 +48,20 @@ function changeColor() {
     console.log(colorDraw);
 }
 
+function reset() {
+    drawDivs.forEach(divs => {
+        if(divs.classList.contains('drawn')){
+            divs.classList.remove('drawn');
+            divs.style.backgroundColor = "white";
+        }
+        
+    });
+    
+}
+
 drawDivs.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
 drawDivs.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
 drawDivs.forEach(trigger => trigger.addEventListener('click', draw))
 
+resetButton.addEventListener("click", reset);
 colorPicker.addEventListener("input", changeColor);
