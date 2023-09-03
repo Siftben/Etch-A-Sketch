@@ -1,16 +1,20 @@
-createSketch();
-const drawDivs = document.querySelectorAll('.draw-px');
+let rowColumn;
+let drawDivs;
+createSketch(16);
 const colorPicker = document.getElementById("color-picker");
 const drawButton = document.querySelector('.draw-btn');
 const eraseButton = document.querySelector('.erase-btn');
 const resetButton = document.querySelector('.reset-btn');
+const slider = document.querySelector('.px-slider');
+const sliderText = document.querySelector('.slider-text');
 let colorDraw = "black";
 let isPencil = true;
+slider.min = '1';
 
-function createSketch () {
+function createSketch (newRowColumn) {
     const drawbg = document.querySelector('.draw-bg');
 
-    for (let index = 0; index < 16; index++) {
+    for (let index = 0; index < newRowColumn; index++) {
         const makeDiv = document.createElement('div');
         drawbg.appendChild(makeDiv);
         makeDiv.classList.add('draw-flex');
@@ -18,15 +22,32 @@ function createSketch () {
 
     const allFlex = document.querySelectorAll('.draw-flex')
 
-    for (let index = 0; index < 16; index++) {
+    for (let index = 0; index < newRowColumn; index++) {
 
-        for (let index = 0; index < 16; index++) {
+        for (let index = 0; index < newRowColumn; index++) {
             const makeDiv = document.createElement('div');
             allFlex[index].appendChild(makeDiv);
             makeDiv.classList.add('draw-px');
         }
     }
+
+    rowColumn = newRowColumn;
+    drawDivs = document.querySelectorAll('.draw-px');
+
+    drawDivs.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
+    drawDivs.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
+    drawDivs.forEach(trigger => trigger.addEventListener('click', draw))
     
+}
+
+function deleteSketch() {
+    const drawFlex = document.querySelectorAll('.draw-flex');
+
+    for (let index = 0; index < rowColumn; index++) {
+        drawFlex[index].remove();
+    }
+
+    createSketch(slider.value);
 }
 
 function handleEnter() {
@@ -79,11 +100,18 @@ function handleEraseButton(){
     isPencil = false;
 }
 
-drawDivs.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
-drawDivs.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
-drawDivs.forEach(trigger => trigger.addEventListener('click', draw))
+function sliderChange() {
+    sliderText.innerHTML = slider.value + "x" + slider.value;
+    console.log(sliderText.value);
+}
+
+function sliderResolution() {
+    deleteSketch();
+}
 
 drawButton.addEventListener('click', handleDrawButton);
 eraseButton.addEventListener('click', handleEraseButton);
 resetButton.addEventListener("click", reset);
+slider.addEventListener("mousemove", sliderChange);
+slider.addEventListener("change", sliderResolution);
 colorPicker.addEventListener("input", changeColor);
