@@ -1,3 +1,11 @@
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
 .title{
     text-align: center;
 }
@@ -6,10 +14,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
-}
-
-.draw-flex{
     
 }
 
@@ -24,4 +28,18 @@
     justify-content: center;
     margin: 18px ;
     gap: 18px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.draw-btn{
+    background-color: grey;
+}
+
+.erase-btn{
+    background-color: white;
 }

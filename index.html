@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Etch-A-Sketch</title>
   <link rel="icon" href="https://fav.farm/🔥" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,13 +25,23 @@
       
       <label for="color-picker">Color</label>
       <input id="color-picker" type="color">
+
+      <button type="button" class="draw-btn" id="draw-btn">
+        <span class="material-symbols-outlined">edit</span>
+      </button>
+      
+      <button type="button" class="erase-btn" id="erase-btn">
+        <span class="material-symbols-outlined">ink_eraser</span>
+      </button>
+      
+      <button type="submit" class="reset-btn" id="reset-btn">Reset</button>
+      
       
     </div>
 
   </div>
 
   <div class="buttons">
-    <button type="submit" class="reset-btn" id="reset-btn">Reset</button>
   </div>
 
   <script src="scripts.js"></script>
