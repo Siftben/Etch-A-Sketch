@@ -1,5 +1,7 @@
 createSketch();
 const drawDivs = document.querySelectorAll('.draw-px');
+const colorPicker = document.getElementById("color-picker");
+let colorDraw;
 
 function createSketch () {
     const drawbg = document.querySelector('.draw-bg');
@@ -36,11 +38,17 @@ function handleLeave() {
 }
 
 function draw() {
-    this.style.backgroundColor = "black";
+    this.style.backgroundColor = colorDraw;
     this.classList.add('drawn');
+}
+
+function changeColor() {
+    colorDraw = this.value;
+    console.log(colorDraw);
 }
 
 drawDivs.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
 drawDivs.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
 drawDivs.forEach(trigger => trigger.addEventListener('click', draw))
 
+colorPicker.addEventListener("input", changeColor);

@@ -5,9 +5,23 @@
 .draw-bg{
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    
+}
+
+.draw-flex{
+    
 }
 
 .draw-px{
     padding: 8px;
+    border: 2px solid black;
+}
+
+.color-picker{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 18px ;
+    gap: 18px;
 }
