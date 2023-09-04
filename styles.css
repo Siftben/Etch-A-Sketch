@@ -31,7 +31,7 @@ body{
 
 .draw-bg{
     display: inline-grid;
-    border: 2px solid grey;
+    border: 1px solid grey;
     border-radius: 5px;
     height: 400px;
     width: 400px;
