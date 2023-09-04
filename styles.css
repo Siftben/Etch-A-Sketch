@@ -13,6 +13,10 @@ body{
     text-align: center;
 }
 
+.px-slider{
+    width: 35%;
+}
+
 .resolution{
     display: flex;
     flex-direction: column;
@@ -26,14 +30,24 @@ body{
 }
 
 .draw-bg{
-    display: flex;
-    align-items: center;
+    display: inline-grid;
+    border: 2px solid grey;
+    border-radius: 5px;
+    height: 400px;
+    width: 400px;
     justify-content: center;
-    
+    align-items: center;
+}
+
+.draw-flex{
+    height: inherit;
+    width: inherit;
+    display: flex;
 }
 
 .draw-px{
-    padding: 8px;
+    height: 100%;
+    width: 100%;
     border: 1px solid grey;
     background-color: white;
 }

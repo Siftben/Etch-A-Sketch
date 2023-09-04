@@ -13,11 +13,16 @@ slider.min = '1';
 
 function createSketch (newRowColumn) {
     const drawbg = document.querySelector('.draw-bg');
+    //Grab from drawbg css height and width pixel
+    let flexWidth = 400 / newRowColumn * newRowColumn;
+    let flexHeight = 400 / newRowColumn - 1;
 
     for (let index = 0; index < newRowColumn; index++) {
         const makeDiv = document.createElement('div');
         drawbg.appendChild(makeDiv);
         makeDiv.classList.add('draw-flex');
+        makeDiv.style.height = flexHeight.toString() + "px";
+        makeDiv.style.width = flexWidth.toString() + "px";
     }
 
     const allFlex = document.querySelectorAll('.draw-flex')
@@ -75,7 +80,6 @@ function draw() {
 
 function changeColor() {
     colorDraw = this.value;
-    console.log(colorDraw);
 }
 
 function reset() {
@@ -102,7 +106,6 @@ function handleEraseButton(){
 
 function sliderChange() {
     sliderText.innerHTML = slider.value + "x" + slider.value;
-    console.log(sliderText.value);
 }
 
 function sliderResolution() {
