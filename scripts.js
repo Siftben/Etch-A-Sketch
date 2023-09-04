@@ -14,7 +14,6 @@ slider.min = '1';
 function createSketch (newRowColumn) {
     const drawbg = document.querySelector('.draw-bg');
     //Grab from drawbg css height and width pixel
-    //let flexWidth = 400;
     let flexHeight = 400 / newRowColumn - 1;
 
     for (let index = 0; index < newRowColumn; index++) {
@@ -22,7 +21,6 @@ function createSketch (newRowColumn) {
         drawbg.appendChild(makeDiv);
         makeDiv.classList.add('draw-flex');
         makeDiv.style.height = flexHeight.toString() + "px";
-        //makeDiv.style.width = flexWidth.toString() + "px";
     }
 
     const allFlex = document.querySelectorAll('.draw-flex')
